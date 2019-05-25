@@ -61,7 +61,7 @@ ping 10.1.4.10
 
 Validate site1server3 CAN ping site1server4 and CANNOT ping site1server1 or site1server2:
 ```
-vagrant ssh site1server
+vagrant ssh site1server3
 ping 10.1.4.10
 ping 10.1.1.10
 ping 10.1.2.10
