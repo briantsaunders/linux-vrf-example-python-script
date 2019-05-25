@@ -45,10 +45,10 @@ Associate interfaces with VRFs on site1router:
 ```
 vagrant ssh site1router
 cd /vagrant
+sudo python3 linux_vrf_example.py --action add_interface --vrf_name vrf1 --interface eth1
 sudo python3 linux_vrf_example.py --action add_interface --vrf_name vrf1 --interface eth2
-sudo python3 linux_vrf_example.py --action add_interface --vrf_name vrf1 --interface eth3
+sudo python3 linux_vrf_example.py --action add_interface --vrf_name vrf2 --interface eth3
 sudo python3 linux_vrf_example.py --action add_interface --vrf_name vrf2 --interface eth4
-sudo python3 linux_vrf_example.py --action add_interface --vrf_name vrf2 --interface eth5
 ```
 
 Validate site1server1 CAN ping site1server2 and CANNOT ping site1server3 or site1server4:
@@ -71,10 +71,10 @@ Disassociate interfaces with VRFs on site1router:
 ```
 vagrant ssh site1router
 cd /vagrant
+sudo python3 linux_vrf_example.py --action remove_interface --vrf_name vrf1 --interface eth1
 sudo python3 linux_vrf_example.py --action remove_interface --vrf_name vrf1 --interface eth2
-sudo python3 linux_vrf_example.py --action remove_interface --vrf_name vrf1 --interface eth3
+sudo python3 linux_vrf_example.py --action remove_interface --vrf_name vrf2 --interface eth3
 sudo python3 linux_vrf_example.py --action remove_interface --vrf_name vrf2 --interface eth4
-sudo python3 linux_vrf_example.py --action remove_interface --vrf_name vrf2 --interface eth5
 ```
 
 Delete VRFs on site1router:
@@ -94,7 +94,7 @@ sudo python3 linux_vrf_example.py --action delete --vrf_name vrf2
 | action    | True     | string  | none    | create | create, delete, add_interface, remove_interface  |
 | vrf_name   | True     | string  | none    | vrf1 | Name of vrf |
 | vrf_table           | False     | integer | none    | 1      | VRF table     |
-| interface | False | string | none    | eth2   | Name of interface |
+| interface | False | string | none    | eth1   | Name of interface |
 
 ### Run
 
@@ -107,13 +107,13 @@ sudo python3 linux_vrf_example.py --action create --vrf_name vrf1 --vrf_table 1
 #### Add Interface to VRF
 
 ```
-sudo python3 linux_vrf_example.py --action add_interface --vrf_name vrf1 --interface eth2
+sudo python3 linux_vrf_example.py --action add_interface --vrf_name vrf1 --interface eth1
 ```
 
 #### Remove Interface from VRF
 
 ```
-sudo python3 linux_vrf_example.py --action remove_interface --vrf_name vrf1 --interface eth2
+sudo python3 linux_vrf_example.py --action remove_interface --vrf_name vrf1 --interface eth1
 ```
 
 #### Delete VRF
